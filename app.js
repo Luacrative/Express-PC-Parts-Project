@@ -7,6 +7,8 @@ require("dotenv").config();
 
 // Routes 
 const indexRoute = require("./routes/index");
+const componentsRoute = require("./routes/components");
+const partsRoute = require("./routes/parts");
 
 // Initialize app 
 const app = express();
@@ -17,6 +19,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRoute);
+app.use("/components", componentsRoute);
+app.use("/parts", partsRoute);
 
 // Initialize database 
 mongoose.set("strictQuery", false);
