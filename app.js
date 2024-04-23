@@ -30,5 +30,4 @@ const mongoDB = process.env.MONGO;
     await mongoose.connect(mongoDB)
 })().catch((err) => console.log(err));
 
-
 module.exports = app;
