@@ -1,12 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
-    res.send("Components page");
-});
+const componentController = require("../controllers/componentController");
 
-router.get("/create", (req, res, next) => {
-    res.send("Create component");
-});
+router.get("/", componentController.index);
+router.get("/create", componentController.create);
 
 module.exports = router;
