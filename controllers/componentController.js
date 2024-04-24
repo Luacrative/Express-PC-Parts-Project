@@ -1,8 +1,9 @@
 
 const componentModel = require("../models/component");
-
-module.exports.index = (req, res, next) => {
-    res.render("components");
+    
+module.exports.index = async (req, res, next) => {
+    const components = await componentModel.find();
+    res.render("components", {components});
 };
 
 module.exports.create = (req, res, next) => {

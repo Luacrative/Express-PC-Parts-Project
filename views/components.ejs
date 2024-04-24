@@ -1,10 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>PC Parts | Components</title>
-        <link rel="stylesheet" href="/stylesheets/style.css" />
-    </head>
-    <body>
-        
-    </body>
+
+<head>
+    <title>PC Parts | Components</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <h1>Components</h1>
+
+    <ul>
+        <% components.forEach( component=>{ %>
+            <li>
+                <h2>
+                    <%=component.name%>
+                </h2>
+                <p>
+                    <%=component.description%>
+                </p>
+            </li>
+        <% }); %>
+    </ul>
+
+    <a href="/components/create">Add new component</a>
+</body>
+
 </html>
