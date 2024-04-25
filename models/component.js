@@ -5,7 +5,7 @@ const componentSchema = new mongoose.Schema({
     description: String
 });
 
-componentSchema.virtual("url").get(() => {
+componentSchema.virtual("url").get(function() {
     return "/components/" + this._id;
 });
 
