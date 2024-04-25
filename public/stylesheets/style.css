@@ -5,3 +5,16 @@ body {
 ul { 
     list-style-type: none;
 }
+
+label { 
+    display: block;
+    font-weight: 600;
+}
+
+button { 
+    color: white;
+    background-color: black;
+    border: 0;
+    border-radius: 2px;
+    padding: 5px 10px;
+}

@@ -7,5 +7,16 @@ module.exports.index = async (req, res, next) => {
 };
 
 module.exports.create = (req, res, next) => {
-    res.send("Create component");
+    res.render("components_form");
+};
+
+module.exports.createForm = async (req, res, next) => {    
+    const component = new componentModel({  
+        name: req.body.name,
+        description: req.body.description
+    });
+
+    await component.save();
+
+    res.redirect("/components");
 };
