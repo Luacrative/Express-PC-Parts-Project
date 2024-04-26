@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PC Parts | Parts | Create</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <h1>Create part</h1>
+
+    <form method="post" action="">
+        <div>
+            <label for="name">Name</label>
+            <input name="name" id="name" type="text" required>
+        </div>
+
+        <div>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" maxlength="100"></textarea>
+        </div>
+
+        <div>
+            <label for="price">Price</label>
+            <input type="number" name="price" id="price" min="0" placeholder="0">
+        </div>
+
+        <div>
+            <label for="stock">Stock</label>
+            <input type="number" name="stock" id="stock" min="1" placeholder="0">
+        </div>
+
+        <div>
+            <label for="component">Component</label>
+            <select name="component" id="component">
+                <% components.forEach( component=>{ %>
+                    <option value="<%=component.id%>">
+                        <%=component.name%>
+                    </option>
+                <% }); %>
+            </select>
+        </div>
+
+        <br>
+
+        <button type="submit">Add</button>
+    </form>
+    
+    <a href="/parts">Go back</a>
+</body>
+
+</html>

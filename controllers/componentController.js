@@ -15,7 +15,7 @@ module.exports.detail = async (req, res, next) => {
     res.render("component_detail", {component});
 };
 
-module.exports.createForm = async (req, res, next) => {    
+module.exports.createPost = async (req, res, next) => {    
     const component = new componentModel({  
         name: req.body.name,
         description: req.body.description

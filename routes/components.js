@@ -5,7 +5,7 @@ const componentController = require("../controllers/componentController");
 
 router.get("/", componentController.index);
 router.get("/create", componentController.create);
-router.post("/create", componentController.createForm);
+router.post("/create", componentController.createPost);
 router.get("/:name", componentController.detail);
 
 module.exports = router;
