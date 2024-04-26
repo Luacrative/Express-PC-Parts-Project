@@ -12,12 +12,8 @@
     <ul>
         <% components.forEach( component=>{ %>
             <li>
-                <h2>
-                    <%=component.name%>
-                </h2>
-                <p>
-                    <%=component.description%>
-                </p>
+                <h2><%=component.name%></h2>
+                <p><%=component.description%></p>
                 <a href="<%=component.url%>">More info</a>
             </li>
         <% }); %>

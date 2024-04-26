@@ -12,16 +12,10 @@
     <ul>
         <% parts.forEach( part=>{ %>
             <li>
-                <h2>
-                    <%=part.name%>
-                </h2>
-                <p>
-                    <%=part.description%>
-                </p>
-                <p>
-                    <strong>$<%=part.price%></strong>
-                </p>
-                <a href="<%=part.url%>">More info</a>
+                <h2><%=part.name%></h2>
+                <p><%=part.description%></p>
+                <p><strong>$<%=part.price%></strong> (<%=part.stock%> left)</p>
+                <a href="<%=part.url%>">Edit</a>
             </li>
         <% }); %>
     </ul>

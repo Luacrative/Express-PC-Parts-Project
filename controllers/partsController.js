@@ -6,6 +6,11 @@ module.exports.index = async (req, res, next) => {
     res.render("parts", {parts});
 };
 
+module.exports.detail = async (req, res, next) => { 
+    const part = await partModel.findById(req.params.id).populate("component").exec();
+    res.render("part_detail", {part});
+};
+
 module.exports.create = async (req, res, next) => { 
     const components = await componentModel.find();
     res.render("parts_form", {components});

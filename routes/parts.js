@@ -6,5 +6,6 @@ const partsController = require("../controllers/partsController");
 router.get("/", partsController.index);
 router.get("/create", partsController.create);
 router.post("/create", partsController.createPost);
+router.get("/:id", partsController.detail);
 
 module.exports = router;

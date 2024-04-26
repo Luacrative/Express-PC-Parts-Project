@@ -8,7 +8,7 @@ const partSchema = new mongoose.Schema({
     component: [{type: mongoose.Schema.ObjectId, ref: "Component"}]
 });
 
-partSchema.virtual("url").get(() => {
+partSchema.virtual("url").get(function() {
     return "/parts/" + this._id;
 });
 
