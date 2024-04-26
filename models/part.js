@@ -5,7 +5,7 @@ const partSchema = new mongoose.Schema({
     price: {required: true, type: Number},
     stock: Number,
     description: String,
-    component: [{type: Schema.ObjectId, ref: "Component"}]
+    component: [{type: mongoose.Schema.ObjectId, ref: "Component"}]
 });
 
 partSchema.virtual("url").get(() => {

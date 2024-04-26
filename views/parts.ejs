@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PC Parts | Parts</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+    <h1>Parts</h1>
+
+    <ul>
+        <% parts.forEach( part=>{ %>
+            <li>
+                <h2>
+                    <%=part.name%>
+                </h2>
+                <p>
+                    <%=part.description%>
+                </p>
+                <p>
+                    <strong>$<%=part.price%></strong>
+                </p>
+                <a href="<%=part.url%>">More info</a>
+            </li>
+        <% }); %>
+    </ul>
+
+    <a href="/parts/create">Add new part</a>
+</body>
+
+</html>

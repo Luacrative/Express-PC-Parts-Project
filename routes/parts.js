@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res, next) => {
-    res.send("Parts page");
-});
+const partsController = require("../controllers/partsController");
+
+router.get("/", partsController.index);
 
 router.get("/create", (req, res, next) => {
     res.send("Create part");
