@@ -6,26 +6,39 @@ module.exports.index = async (req, res, next) => {
     res.render("parts", {parts});
 };
 
-module.exports.detail = async (req, res, next) => { 
-    const part = await partModel.findById(req.params.id).populate("component").exec();
-    res.render("part_detail", {part});
-};
-
 module.exports.create = async (req, res, next) => { 
     const components = await componentModel.find();
-    res.render("parts_form", {components});
+
+    const id = req.params.id; 
+    if (!id) { 
+        res.render("parts_form", {
+            components,
+            part: {component: {}},
+            action: "",
+            button: "Add"
+        });
+
+        return; 
+    }
+
+    const part = await partModel.findById(id)
+        .populate("component")
+        .exec(); 
+    
+    res.render("parts_form", {
+        components,
+        part,
+        action: part.id,
+        button: "Edit"
+    });
 };
 
-module.exports.createPost = async (req, res, next) => { 
-    const part = new partModel({  
-        name: req.body.name,
-        description: req.body.description,
-        stock: req.body.stock || 0,
-        price: req.body.price || 0,
-        component: req.body.component
-    });
-
-    await part.save();
+module.exports.createPost = async (req, res, next) => {
+    const id = req.params.id; 
+    if (id) 
+        await partModel.findByIdAndUpdate(id, req.body);
+    else 
+        await (new partModel(req.body)).save();
 
     res.redirect("/parts");
 };

@@ -12,29 +12,29 @@
     <form method="post" action="">
         <div>
             <label for="name">Name</label>
-            <input name="name" id="name" type="text" required>
+            <input name="name" id="name" type="text" value = "<%=part.name%>" required>
         </div>
 
         <div>
             <label for="description">Description</label>
-            <textarea name="description" id="description" maxlength="100"></textarea>
+            <textarea name="description" id="description" maxlength="100"><%=part.description%></textarea>
         </div>
 
         <div>
             <label for="price">Price</label>
-            <input type="number" name="price" id="price" min="0" placeholder="0">
+            <input type="number" name="price" id="price" min="0" placeholder="0" value="<%=part.price%>">
         </div>
 
         <div>
             <label for="stock">Stock</label>
-            <input type="number" name="stock" id="stock" min="1" placeholder="0">
+            <input type="number" name="stock" id="stock" min="1" placeholder="0" value="<%=part.stock%>">
         </div>
 
         <div>
             <label for="component">Component</label>
             <select name="component" id="component">
                 <% components.forEach( component=>{ %>
-                    <option value="<%=component.id%>">
+                    <option <%=part.component.id === component.id && "selected"%> value="<%=component.id%>">
                         <%=component.name%>
                     </option>
                 <% }); %>
@@ -43,7 +43,7 @@
 
         <br>
 
-        <button type="submit">Add</button>
+        <button type="submit"><%=button%></button>
     </form>
     
     <a href="/parts">Go back</a>

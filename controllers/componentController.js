@@ -28,16 +28,10 @@ module.exports.create = async (req, res, next) => {
 
 module.exports.createPost = async (req, res, next) => {
     const id = req.params.id; 
-    if (!id) { 
-        const component = new componentModel({  
-            name: req.body.name,
-            description: req.body.description
-        });
-
-        await component.save();
-    } else { 
+    if (id)  
         await componentModel.findByIdAndUpdate(id, req.body);
-    }
+    else 
+        await (new componentModel(req.body)).save();
 
     res.redirect("/components");
 };

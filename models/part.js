@@ -5,11 +5,11 @@ const partSchema = new mongoose.Schema({
     price: {required: true, type: Number},
     stock: Number,
     description: String,
-    component: [{type: mongoose.Schema.ObjectId, ref: "Component"}]
+    component: {type: mongoose.Schema.ObjectId, ref: "Component"}
 });
 
 partSchema.virtual("url").get(function() {
-    return "/parts/" + this._id;
+    return "/parts/create/" + this._id;
 });
 
 module.exports = mongoose.model("Part", partSchema);
