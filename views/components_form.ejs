@@ -9,18 +9,18 @@
 <body>
     <h1>Create component</h1>
 
-    <form method="post" action="">
+    <form method="post" action="<%action%>">
         <div>
             <label for="name">Name</label>
-            <input name="name" id="name" type="text" required>
+            <input name="name" id="name" type="text" value="<%=component.name%>" required>
         </div>
 
         <div>
             <label for="description">Description</label>
-            <textarea name="description" id="description" maxlength="100"></textarea>
+            <textarea name="description" id="description" maxlength="100"><%=component.description%></textarea>
         </div>
 
-        <button type="submit">Add</button>
+        <button type="submit"><%=button%></button>
     </form>
     
     <a href="/components">Go back</a>

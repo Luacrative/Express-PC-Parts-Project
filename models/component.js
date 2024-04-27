@@ -6,7 +6,7 @@ const componentSchema = new mongoose.Schema({
 });
 
 componentSchema.virtual("url").get(function() {
-    return "/components/" + this._id;
+    return "/components/create/" + this._id;
 });
 
 module.exports = mongoose.model("Component", componentSchema);

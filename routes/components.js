@@ -4,8 +4,7 @@ const router = express.Router();
 const componentController = require("../controllers/componentController");
 
 router.get("/", componentController.index);
-router.get("/create", componentController.create);
-router.post("/create", componentController.createPost);
-router.get("/:id", componentController.detail);
+router.get("/create/:id?", componentController.create);
+router.post("/create/:id?", componentController.createPost);
 
 module.exports = router;

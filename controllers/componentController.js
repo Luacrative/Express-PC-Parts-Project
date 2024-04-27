@@ -6,22 +6,38 @@ module.exports.index = async (req, res, next) => {
     res.render("components", {components});
 };
 
-module.exports.detail = async (req, res, next) => { 
-    const component = await componentModel.findById(req.params.id);
-    res.render("component_detail", {component});
+module.exports.create = async (req, res, next) => {
+    const id = req.params.id;
+    if (!id) { 
+        res.render("components_form", {
+            component: {},
+            action: "",
+            button: "Add"
+        });
+
+        return;
+    } 
+    
+    const component = await componentModel.findById(id);
+    res.render("components_form", {
+        component,
+        action: component.id,
+        button: "Edit"
+    }); 
 };
 
-module.exports.create = (req, res, next) => {
-    res.render("components_form");
-};
+module.exports.createPost = async (req, res, next) => {
+    const id = req.params.id; 
+    if (!id) { 
+        const component = new componentModel({  
+            name: req.body.name,
+            description: req.body.description
+        });
 
-module.exports.createPost = async (req, res, next) => {    
-    const component = new componentModel({  
-        name: req.body.name,
-        description: req.body.description
-    });
-
-    await component.save();
+        await component.save();
+    } else { 
+        await componentModel.findByIdAndUpdate(id, req.body);
+    }
 
     res.redirect("/components");
 };
