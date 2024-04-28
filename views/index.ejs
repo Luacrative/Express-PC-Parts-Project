@@ -5,6 +5,23 @@
         <link rel="stylesheet" href="/stylesheets/style.css" />
     </head>
     <body>
-        
+        <h1>PC Part Inventory</h1>
+        <ul>
+            <% data.forEach(group =>{ %>
+                <li>
+                    <h2><%=group.component.name%></h2>
+                    <ul>
+                        <% group.parts.forEach(part => { %>
+                            <li>
+                                <h2><%=part.name%></h2>
+                                <p><%=part.description%></p>
+                                <p><strong>$<%=part.price%></strong> (<%=part.stock%> left)</p>
+                            </li>    
+                        <%}); %>
+                    </ul>
+                </li>
+            <% }); %>
+        </ul>
+    
     </body>
 </html>
