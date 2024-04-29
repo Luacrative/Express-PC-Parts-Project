@@ -15,7 +15,8 @@
                 <h2><%=part.name%></h2>
                 <p><%=part.description%></p>
                 <p><strong>$<%=part.price%></strong> (<%=part.stock%> left)</p>
-                <a href="<%=part.url%>">Edit</a>
+                <a href="<%=part.editUrl%>">Edit</a>
+                <a href="<%=part.deleteUrl%>">Delete</a>
             </li>
         <% }); %>
     </ul>

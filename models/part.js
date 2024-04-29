@@ -8,8 +8,12 @@ const partSchema = new mongoose.Schema({
     component: {type: mongoose.Schema.ObjectId, ref: "Component"}
 });
 
-partSchema.virtual("url").get(function() {
+partSchema.virtual("editUrl").get(function() {
     return "/parts/create/" + this._id;
+});
+
+partSchema.virtual("deleteUrl").get(function() {
+    return "/parts/delete/" + this._id;
 });
 
 module.exports = mongoose.model("Part", partSchema);

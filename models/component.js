@@ -5,8 +5,12 @@ const componentSchema = new mongoose.Schema({
     description: String
 });
 
-componentSchema.virtual("url").get(function() {
+componentSchema.virtual("editUrl").get(function() {
     return "/components/create/" + this._id;
+});
+
+componentSchema.virtual("deleteUrl").get(function() {
+    return "/components/delete/" + this._id;
 });
 
 module.exports = mongoose.model("Component", componentSchema);

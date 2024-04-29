@@ -43,4 +43,11 @@ module.exports.createPost = async (req, res, next) => {
     res.redirect("/parts");
 };
 
+module.exports.delete = async (req, res, next) => { 
+    const id = req.params.id; 
+    await partModel.findByIdAndDelete(id); 
+
+    res.redirect("/parts");
+};
+
 module.exports.create

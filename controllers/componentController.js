@@ -35,3 +35,10 @@ module.exports.createPost = async (req, res, next) => {
 
     res.redirect("/components");
 };
+
+module.exports.delete = async (req, res, next) => {
+    const id = req.params.id; 
+    await componentModel.findByIdAndDelete(id);
+    
+    res.redirect("/components");
+};
