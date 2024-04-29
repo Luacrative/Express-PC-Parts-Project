@@ -5,7 +5,9 @@
         <link rel="stylesheet" href="/stylesheets/style.css" />
     </head>
     <body>
-        <h1>PC Part Inventory</h1>
+        <%- include("header") -%>
+        
+        <h2>All parts listed below</h2>
         <ul>
             <% data.forEach(group =>{ %>
                 <li>
